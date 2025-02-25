@@ -1,6 +1,7 @@
 import {test, expect, BrowserContext} from "@playwright/test"
 import { Authentication } from "../page-objects/authentication";
 import { SmokeTest } from "../page-objects/smoke_test";
+test.use({viewport:{width:1366, height:768}}); // Sets browser height and width 
 
 let page;
 let context: BrowserContext;
@@ -30,30 +31,10 @@ test.afterAll(async ({browser}) => {
 
 
 
-test("Crreate Account", async()=>{
-
-
-  // await page.getByText('Create an Account').first().click();
-  // await page.getByText("First Name").fill("Muhammad");
-  // await page.getByText("Last Name").fill("Ali");
-  // await page.getByRole('textbox', {name: "Email"}).fill("mohdalikareem669@gmail.com");
-  // await page.locator('//*[@id="password"]').fill("No Password");
-  // await page.locator('//*[@id="password-confirmation"]').fill("No Password");
-  // await page.getByRole('button', {name:"Create an Account"}).click();
-
-
-
-      // const lg = new Authentication(page);
-      // await lg.Login();
+test("Clicks ", async()=>{
 
       const smk = new SmokeTest(page);
-      await smk.accountInformation();
-
-
-      const abc = new AbortController();
-
-
-
+      await smk.smkTests();
 
 
 });

@@ -21,6 +21,14 @@ export class Authentication{
 
  }   
 
+  //Signup 
+  // await page.getByText('Create an Account').first().click();
+  // await page.getByText("First Name").fill("Muhammad");
+  // await page.getByText("Last Name").fill("Ali");
+  // await page.getByRole('textbox', {name: "Email"}).fill("mohdalikareem669@gmail.com");
+  // await page.locator('//*[@id="password"]').fill("No Password");
+  // await page.locator('//*[@id="password-confirmation"]').fill("No Password");
+  // await page.getByRole('button', {name:"Create an Account"}).click(); 
 
 
 }
