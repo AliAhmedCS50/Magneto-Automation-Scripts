@@ -31,10 +31,18 @@ test.afterAll(async ({browser}) => {
 
 
 
-test("Clicks ", async()=>{
+test("Clicks", async()=>{
 
       const smk = new SmokeTest(page);
       await smk.smkTests();
+
+
+});
+
+test('Drop down handling', async()=>{
+
+    const drp = new SmokeTest(page);
+    await drp.dropDown();
 
 
 });
