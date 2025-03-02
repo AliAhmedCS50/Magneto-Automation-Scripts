@@ -1,6 +1,7 @@
 import {test, expect, BrowserContext} from "@playwright/test"
 import { Authentication } from "../page-objects/authentication";
 import { SmokeTest } from "../page-objects/smoke_test";
+import { BrokenImages } from "../page-objects/brokenImages.spec";
 test.use({viewport:{width:1366, height:768}}); // Sets browser height and width 
 
 let page;
@@ -46,3 +47,12 @@ test('Drop down handling', async()=>{
 
 
 });
+
+test('Find Broken Images', async()=>{
+
+    const brknImages = new BrokenImages(page);
+    await brknImages.findBrokenImages();
+
+
+
+})
