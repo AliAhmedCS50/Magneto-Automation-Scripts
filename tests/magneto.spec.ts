@@ -1,7 +1,7 @@
 import {test, expect, BrowserContext} from "@playwright/test"
 import { Authentication } from "../page-objects/authentication";
 import { SmokeTest } from "../page-objects/smoke_test";
-import { BrokenImages } from "../page-objects/brokenImages.spec";
+import { BrokenImages } from "../page-objects/brokenImage";
 test.use({viewport:{width:1366, height:768}}); // Sets browser height and width 
 
 let page;
@@ -56,3 +56,4 @@ test('Find Broken Images', async()=>{
 
 
 })
+
