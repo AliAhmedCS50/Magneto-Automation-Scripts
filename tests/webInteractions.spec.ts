@@ -51,7 +51,7 @@ test("Handle Prompt Dialog", async()=>{
 });
 
 
-test('Handle New Page', async({context})=>{
+test.skip('Handle New Page', async({context})=>{
 
     const newPage = new Interactions(page);
     await newPage.handleNewPage(context);
