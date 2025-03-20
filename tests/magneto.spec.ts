@@ -13,11 +13,13 @@ test.beforeAll('Automation Practice', async({browser})=>{
   page = await browser.newPage();
   context = await browser.newContext(); 
   test.setTimeout(300000);
-  await page.goto("https://magento.softwaretestingboard.com");
+  await page.goto(process.env.URL);
 
   await page.locator('div.panel.header a:has-text("Sign In")').click();
-  await page.getByRole("textbox", {name: "Email"}).fill('mohdalikareem669@gmail.com');
-  await page.getByRole("textbox", {name: "Password"}).fill("No Password");
+  //await page.getByRole("textbox", {name: "Email"}).fill('mohdalikareem669@gmail.com');
+  await page.getByRole("textbox", {name: "Email"}, process.env.USERNAME);
+  //await page.getByRole("textbox", {name: "Password"}).fill("No Password");
+  await page.getByRole("textbox", {name: "Password"}, process.env.PASSWORD);
   await page.getByRole("button", {name: "Sign In"}).click();
 
 });

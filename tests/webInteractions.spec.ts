@@ -2,13 +2,13 @@ import { test, BrowserContext } from "@playwright/test";
 import {Interactions} from "../page-objects/webElements";
 
 let page;
-let context;
+//let context;
 
 
 test.beforeAll('Automation Practice', async({browser})=>{
-
-  page = await browser.newPage();
-  context = await browser.newContext();
+    
+    page = await browser.newPage();
+  //context = await browser.newContext();
   test.setTimeout(300000);
 
 
@@ -57,4 +57,13 @@ test.skip('Handle New Page', async({context})=>{
     await newPage.handleNewPage(context);
 
 })
+
+
+test("Mouse Hover", async()=>{
+
+    const hover = new Interactions(page);
+    await hover.mouseHover();
+
+});
+
 

@@ -112,15 +112,23 @@ async promptDialog(){
 
 async handleNewPage(context){
 
-  const page1 = await context.newPage();
-  await this.page.goto('https://testpages.eviltester.com/styled/index.html');
+  const page = await context.newPage();
+  await page.goto('https://testpages.eviltester.com/styled/index.html');
   //await expect(page).toHaveTitle('Windows Example Test');
-  const pagePromise = context.waitForEvent(this.page);
-  await this.page.locator('#basicajaxtest').click();
-  const newPage1 = await pagePromise;
-  await this.page.locator("[name = 'submitbutton']").click();
+  //const pagePromise = context.waitForEvent("page");
+  await page.locator('#basicajaxtest').click();
+  //const newPage = await pagePromise;
+  await page.locator("[name = 'submitbutton']").click();
     
    
+}
+
+async mouseHover(){
+
+  await this.page.goto("https://magento.softwaretestingboard.com/");
+  await this.page.getByRole('menuitem', { name: ' Gear' }).hover({force: true});
+  await this.page.getByRole('menuitem', { name: 'Watches' }).click();
+
 }
 
 }
