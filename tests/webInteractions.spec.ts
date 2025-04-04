@@ -66,4 +66,31 @@ test("Mouse Hover", async()=>{
 
 });
 
+test('Drag & Drop', async()=>{
+
+    const drag = new Interactions(page);
+    await drag.dragDrop();
+
+});
+
+test('Keyboard Actions', async()=>{
+    
+    const key = new Interactions(page);
+    await key.keyboardActions();
+
+});
+
+test('File uploading', async()=>{
+
+    const file = new Interactions(page);
+    await file.fileUpload();
+
+});
+
+test('File uploading (without file tag in DOM)', async()=>{
+
+    const noFile = new Interactions(page);
+    await noFile.noFileTagInHtml();
+
+});
 

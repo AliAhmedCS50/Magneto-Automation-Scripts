@@ -131,4 +131,67 @@ async mouseHover(){
 
 }
 
+async dragDrop(){
+
+  // Approach 1: Manual way to drag and drop
+
+  /*
+  await this.page.goto('https://demoqa.com/droppable'); 
+  await this.page.getByText('Drag me', { exact: true }).hover(); //pick location
+  await this.page.mouse.down(); //Mouse hold
+  await this.page.getByLabel('Simple').getByText('Drop here').hover(); //target location 
+  await this.page.mouse.up(); //Mouse release 
+  await expect(this.page.getByLabel('Simple').locator('#droppable')).toHaveText("Dropped!");
+  */
+
+  //Approach 2: 
+  await this.page.goto('https://demoqa.com/droppable'); 
+  await this.page.getByText('Drag me', { exact: true }).dragTo(this.page.getByLabel('Simple').getByText('Drop here'), {
+    sourcePosition:{x:0, y:0},
+    targetPosition: {x:45, y:15}
+  })
+
+
+}
+
+async keyboardActions(){
+
+  await this.page.goto('https://testpages.eviltester.com/styled/basic-html-form-test.html');
+  const commentTextBox = this.page.locator("[name='comments']");
+  await commentTextBox.press("Control+a");
+  await commentTextBox.press("Backspace");
+  await commentTextBox.press("T+e+s+t+i+n+g+ +K+e+y+b+o+a+r+d");
+  await commentTextBox.press("Control+a+x"); //cutting the above value
+
+  const userNameInput = this.page.locator("[name='username']");
+  await userNameInput.press("Control+v"); //Pasting the above cutted value
+  await userNameInput.press("ArrowLeft+ArrowLeft+ArrowLeft");
+  await this.page.keyboard.press("PageDown");
+  await this.page.keyboard.press("PageUp");
+
+}
+
+
+async fileUpload(){
+
+  await this.page.goto('https://davidwalsh.name/demo/multiple-file-upload.php');
+  //await this.page.locator("#filesToUpload").setInputFiles("upload-files\\movies.txt"); //To upload the single file
+  await this.page.locator("#filesToUpload").setInputFiles(["upload-files\\movies.txt", "upload-files\\JulyLunch.xlsx", "upload-files\\PW.docx"]); //To upload the multuple files
+  await this.page.locator("#filesToUpload").setInputFiles([]); //Remove files
+
+}
+
+async noFileTagInHtml() {
+
+  await this.page.goto('https://the-internet.herokuapp.com/upload');
+
+
+
+
+
+}
+
+
+
+
 }
