@@ -184,6 +184,10 @@ async fileUpload(){
 async noFileTagInHtml() {
 
   await this.page.goto('https://the-internet.herokuapp.com/upload');
+  const fileChooserPromise = this.page.waitForEvent("filechooser");
+  await this.page.locator('#drag-drop-upload').click();
+  const fileChooserResolved = await fileChooserPromise;
+  await fileChooserResolved.setFiles('upload-files/movies.txt')
 
 
 
