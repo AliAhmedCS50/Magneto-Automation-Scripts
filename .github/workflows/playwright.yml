@@ -21,7 +21,7 @@ jobs:
         node-version: lts/*
 
     - name: Copy `.env` file
-      run: cp ./env-files/.env.${process.env.TEST_ENV } .env # Replace with your actual `.env` file path
+      run: cp ./env-files/.env.${{ env.TEST_ENV }} # Replace with your actual `.env` file path
       
       #dotenv.config({ path: `./env-files/.env.${process.env.TEST_ENV}` });
 
